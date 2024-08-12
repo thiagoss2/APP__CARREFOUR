@@ -17,6 +17,7 @@ align-items: center;
     display: flex;
     border: 2px solid #1E5BC6;
     border-radius: 3px;
+   
 }
 
 .secao__busca-pesquisa {
@@ -24,6 +25,42 @@ align-items: center;
     display: flex;
     width: 427px;
     padding: 1px 2px 1px 16px;
+    position: relative;
+}
+
+.secao__busca-pesquisa-subbloco {
+    position: absolute;
+    width: 100%;
+    left: 0;
+
+    top: 45px;
+}
+
+.secao__busca-pesquisa-subbloco-lista {
+  
+
+}
+
+.secao__busca-pesquisa-subbloco-item-lista {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border: 1px solid #4073CF;
+    margin-bottom: 2px;
+    border-radius: 2px;
+    padding: 4px;
+
+}
+
+.secao__busca-presquisa-subbloco-imagem {
+    width: 40px;
+    height: 40px;
+}.secao__busca-pesquisa-subbloco-titulo {
+    color: black;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    font-size: 12px;
 }
 
 .secao__busca-input {
@@ -54,7 +91,7 @@ align-items: center;
 .secao__usuario-lista {
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 30px;
 }
 .secao__usuario-item-lista {
     display: flex;
@@ -87,6 +124,7 @@ align-items: center;
     color: #1E5BC6;
     font-size: 35px;
 }
+
 
 
 `

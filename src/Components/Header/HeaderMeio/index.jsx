@@ -8,6 +8,7 @@ import { BsCart2 } from "react-icons/bs";
 import { PiMoneyWavyLight } from "react-icons/pi";
 import { PiBagLight } from "react-icons/pi";
 import { FaRegHeart } from "react-icons/fa";
+import { produtos } from '../../../../produtos';
 
 function HeaderMeio() {
   return (
@@ -18,6 +19,16 @@ function HeaderMeio() {
       <section className='secao__busca'>
         <div className='secao__busca-pesquisa'>
           <input type='text' placeholder='O que você está procurando?' className='secao__busca-input' />
+          <div className='secao__busca-pesquisa-subbloco'>
+            <ul className='secao__busca-pesquisa-subbloco-lista' >
+              {produtos.map((produto) => (
+                <li key={produto.codigo} className='secao__busca-pesquisa-subbloco-item-lista'>
+                  <img src={produto.imagem} className='secao__busca-presquisa-subbloco-imagem' alt="imagem do produto" />
+                  <h2 className='secao__busca-pesquisa-subbloco-titulo'>{produto.titulo}</h2>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         <button className='secao__busca-botao'>
           <IoIosSearch className='secao__busca-icone' />
