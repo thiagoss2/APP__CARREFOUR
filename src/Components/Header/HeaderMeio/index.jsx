@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { HeaderMeioStyled } from './styles';
 import logo from '../../../assets/logo-carrefour.jpg'; // Verifique o caminho
 import { IoIosSearch } from "react-icons/io";
@@ -11,6 +10,22 @@ import { FaRegHeart } from "react-icons/fa";
 import { produtos } from '../../../../produtos';
 
 function HeaderMeio() {
+  const [termoPesquisa, setTermoPesquisa] = useState('');
+  const [visivel, setVisivel] = useState(false);
+
+  const encontrarProduto = (event) => {
+    const termo = event.target.value;
+    setTermoPesquisa(termo);
+     setTimeout(() => {
+      setVisivel(termo.length > 2) // isso retorna true ou false
+
+     }, 800);
+  }
+
+  const produtosFiltrados = produtos.filter(produto =>
+    produto.titulo.toLowerCase().includes(termoPesquisa.toLowerCase())
+  );
+
   return (
     <HeaderMeioStyled>
       <section className='secao__logo'>
@@ -18,10 +33,10 @@ function HeaderMeio() {
       </section>
       <section className='secao__busca'>
         <div className='secao__busca-pesquisa'>
-          <input type='text' placeholder='O que você está procurando?' className='secao__busca-input' />
-          <div className='secao__busca-pesquisa-subbloco'>
-            <ul className='secao__busca-pesquisa-subbloco-lista' >
-              {produtos.map((produto) => (
+          <input onChange={encontrarProduto} type='text' placeholder='O que você está procurando?' className='secao__busca-input' />
+          <div className='secao__busca-pesquisa-subbloco' style={{ visibility: visivel ? 'visible' : 'hidden' }}>
+            <ul className='secao__busca-pesquisa-subbloco-lista'>
+              {produtosFiltrados.map((produto) => (
                 <li key={produto.codigo} className='secao__busca-pesquisa-subbloco-item-lista'>
                   <img src={produto.imagem} className='secao__busca-presquisa-subbloco-imagem' alt="imagem do produto" />
                   <h2 className='secao__busca-pesquisa-subbloco-titulo'>{produto.titulo}</h2>
@@ -67,7 +82,6 @@ function HeaderMeio() {
       </section>
     </HeaderMeioStyled>
   )
-
 }
 
 export default HeaderMeio;

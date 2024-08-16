@@ -32,8 +32,8 @@ align-items: center;
     position: absolute;
     width: 100%;
     left: 0;
-
     top: 45px;
+    visibility: hidden;
 }
 
 .secao__busca-pesquisa-subbloco-lista {
